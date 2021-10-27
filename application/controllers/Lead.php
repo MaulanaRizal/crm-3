@@ -35,13 +35,7 @@ class Lead extends CI_Controller{
 		$this->load->view('page/lead/tambah', $data);
 	}
 
-	public function qualify($id_leads){
-		$data['title'] = 'Tambah Opportunity';
-		$data['no_opportunity'] = $this->m_opportunity->getNo_Opportunity();
-		$data['lead'] = $this->m_lead->getQualify($id_leads);
-		$this->load->view('page/opportunity/qualify', $data);
-	}
-
+	
 	public function simpan(){
 		$this->form_validation->set_rules('topic', 'topic', 'required');
 		$this->form_validation->set_rules('nama', 'nama', 'required');
@@ -73,13 +67,13 @@ class Lead extends CI_Controller{
 			$this->m_lead->insert('leads', $data);
 		}
 	}
-
+	
 	public function updateLead($id_leads){
 		$data['title'] = 'Update Lead';
 		$data['lead'] = $this->m_lead->getId($id_leads);
 		$this->load->view('page/lead/update', $data);
 	}
-
+	
 	public function update(){
 		$this->form_validation->set_rules('topic', 'topic', 'required');
 		$this->form_validation->set_rules('nama', 'nama', 'required');
@@ -110,14 +104,22 @@ class Lead extends CI_Controller{
 			);
 			$this->m_lead->update($data, $id_leads);
 			$this->session->set_flashdata('message', "<div class='alert alert-success'>Lead berhasil diubah</div>");
-
+			
 		}
 	}
-
+	
 	public function disqualify(){
 		$id_lead = $this->input->post('id_lead');
 		$this->m_lead->disqualify($id_lead);
+		$this->session->set_flashdata('message', "<div class='alert alert-success'>Data lead telah dihapus</div>");
 		redirect('lead');
+	}
+	
+	public function qualify($id_leads){
+		$data['title'] = 'Tambah Opportunity';
+		$data['no_opportunity'] = $this->m_opportunity->getNo_Opportunity();
+		$data['lead'] = $this->m_lead->getQualify($id_leads);
+		$this->load->view('page/opportunity/qualify', $data);
 	}
 }
 ?>
