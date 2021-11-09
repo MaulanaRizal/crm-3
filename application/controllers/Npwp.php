@@ -62,11 +62,11 @@ class Npwp extends CI_Controller
     }
     public function delete($id)
     {
-        $this->session->set_flashdata('message', "<div clas  ='alert alert-danger'>Data NPWP berhasil dihapus</div>");
         $data = $this->model->getData('npwp', array('ID_NPWP' => $id))->result();
         log_message('info', json_encode($data));
         // echo "<script>console.log(".json_encode($data).");</script>";
         $this->model->delete('npwp', array('ID_NPWP' => $id));
+        $this->session->set_flashdata('message', "<div class='alert alert-success'>Data NPWP berhasil dihapus.</div>");
         redirect('npwp');
     }
     public function edit($id)
@@ -109,7 +109,7 @@ class Npwp extends CI_Controller
                 'ALAMAT'        =>  $_POST['alamat'],
             );
             $this->model->update('npwp', $data,array ('ID_NPWP' => $id));
-            $this->session->set_flashdata('message', "<div class='alert alert-success'>Berhasil Menambahkan data NPWP baru.</div>");
+            $this->session->set_flashdata('message', "<div class='alert alert-success'>Data NPWP berhasil diubah.</div>");
             redirect('npwp');
         } else {
             $this->session->set_flashdata('message', "<div class='alert alert-danger'>Terjadi masalah coba lagi</div>");

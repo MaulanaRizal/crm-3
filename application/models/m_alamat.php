@@ -66,3 +66,5 @@ Class M_alamat extends CI_Model {
     }
 }
 ?>
+
+

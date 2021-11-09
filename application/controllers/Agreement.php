@@ -82,6 +82,7 @@ class Agreement extends CI_Controller
 			);
 			// var_dump($data);
 			$this->model->insert('agreements', $data);
+			$this->session->set_flashdata('message', "<div class='alert alert-success'>Agreement berhasil diubah</div>");
 			redirect('agreement/edit/' . $no_agrt);
 		} else {
 			$this->session->set_flashdata('message', "<div class='alert alert-danger'>" . validation_errors() . "</div>");

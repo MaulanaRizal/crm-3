@@ -45,5 +45,12 @@ class M_opportunity extends CI_Model{
     {
         $this->db->update($table,$data,$where);
     }
+    public function delete($table,$id)
+    {
+        $data = array(
+            'ID_OPPORTUNITY' => $id
+        );
+        $this->db->delete($table,$data);
+    }
 }
 ?>

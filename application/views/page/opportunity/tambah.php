@@ -28,9 +28,9 @@
                 </div>
                 <!-- Start Content -->
                 <div class="row d-flex justify-content-center">
-                        <div class="card col-md-10">
-                            <div class="card-body">
-                                <form class="itemOpportunity" novalidate method="post">
+                    <div class="card col-md-10">
+                        <div class="card-body">
+                            <form class="itemOpportunity" novalidate method="post">
                                 <div class="float-right col-lg-9">
                                     <table>
                                         <tr>
@@ -83,114 +83,114 @@
                                         <h4 class="card-title">Summary</h4>
                                     </div>
                                 </div>
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">No Opportunity</label>
-                                        <div class="col-10">
-                                            <input readonly type="text" name="no_opportunity" value="OPT/<?php echo $no_opportunity;?>" class="form-control">
-                                        </div>
+                                <div class="form-group m-t-40 row">
+                                    <label for="example-text-input" class="col-2 col-form-label">No Opportunity</label>
+                                    <div class="col-10">
+                                        <input readonly type="text" name="no_opportunity" value="OPT/<?php echo $no_opportunity; ?>" class="form-control">
                                     </div>
-                                    <div class="form-group row <?=form_error('topic') ? 'has-error' : null?>">
-                                        <label for="example-text-input" class="col-2 col-form-label">Topic <span style="color: red">*</span></label>
-                                        <div class="col-10">
-                                            <input name="topic" class="form-control" type="text">
-                                            <span id="topic_error" class="text-danger"><?=form_error('topic')?></span>
-                                        </div>
+                                </div>
+                                <div class="form-group row <?= form_error('topic') ? 'has-error' : null ?>">
+                                    <label for="example-text-input" class="col-2 col-form-label">Topic <span style="color: red">*</span></label>
+                                    <div class="col-10">
+                                        <input name="topic" class="form-control" type="text">
+                                        <span id="topic_error" class="text-danger"><?= form_error('topic') ?></span>
                                     </div>
-                                    <div class="form-group row <?=form_error('nama_pelanggan') ? 'has-error' : null?>">
-                                        <label for="example-text-input" class="col-2 col-form-label">Nama Pelanggan <span style="color: red">*</span></label>
-                                        <div class="col-10">
-                                            <input name="nama_pelanggan" class="form-control" type="text">
-                                            <span id="nama_pelanggan_error" class="text-danger"><?=form_error('nama_pelanggan')?></span>
-                                        </div>
+                                </div>
+                                <div class="form-group row <?= form_error('nama_pelanggan') ? 'has-error' : null ?>">
+                                    <label for="example-text-input" class="col-2 col-form-label">Nama Pelanggan <span style="color: red">*</span></label>
+                                    <div class="col-10">
+                                        <input name="nama_pelanggan" class="form-control" type="text">
+                                        <span id="nama_pelanggan_error" class="text-danger"><?= form_error('nama_pelanggan') ?></span>
                                     </div>
-                                    <div class="form-group row <?=form_error('tanggal') ? 'has-error' : null?>">
-                                        <label for="example-date-input" class="col-2 col-form-label">Tanggal Opportunity <span style="color: red">*</span></label>
-                                        <div class="col-10">
-                                            <input name="tanggal" class="form-control" type="date">
-                                            <span id="tanggal_error" class="text-danger"><?=form_error('tanggal')?></span>
-                                        </div>
+                                </div>
+                                <div class="form-group row <?= form_error('tanggal') ? 'has-error' : null ?>">
+                                    <label for="example-date-input" class="col-2 col-form-label">Tanggal Opportunity <span style="color: red">*</span></label>
+                                    <div class="col-10">
+                                        <input name="tanggal" class="form-control" type="date">
+                                        <span id="tanggal_error" class="text-danger"><?= form_error('tanggal') ?></span>
                                     </div>
-                                    <div class="form-group row <?=form_error('tanggal_target') ? 'has-error' : null?>">
-                                        <label for="example-date-input" class="col-2 col-form-label">Tanggal Target Penjualan <span style="color: red">*</span></label>
-                                        <div class="col-10">
-                                            <input name="tanggal_target" class="form-control" type="date">
-                                            <span id="tanggal_target_error" class="text-danger"><?=form_error('tanggal_target')?></span>
-                                        </div>
+                                </div>
+                                <div class="form-group row <?= form_error('tanggal_target') ? 'has-error' : null ?>">
+                                    <label for="example-date-input" class="col-2 col-form-label">Tanggal Target Penjualan <span style="color: red">*</span></label>
+                                    <div class="col-10">
+                                        <input name="tanggal_target" class="form-control" type="date">
+                                        <span id="tanggal_target_error" class="text-danger"><?= form_error('tanggal_target') ?></span>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-month-input" class="col-2 col-form-label">Tipe Survey</label>
-                                        <div class="col-10">
-                                            <select name="tipe_survey" class="col-12 form-control">
-                                                <option selected="">Choose...</option>
-                                                <option>Detail Survei</option>
-                                                <option>On Desk</option>
-                                            </select>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-month-input" class="col-2 col-form-label">Tipe Survey</label>
+                                    <div class="col-10">
+                                        <select name="tipe_survey" class="col-12 form-control">
+                                            <option selected="">Choose...</option>
+                                            <option>Detail Survei</option>
+                                            <option>On Desk</option>
+                                        </select>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-month-input" class="col-2 col-form-label">Jangka Waktu Pembelian</label>
-                                        <div class="col-10">
-                                            <select name="waktu_pemesanan" class="form-control col-12">
-                                                <option selected="">Choose...</option>
-                                                <option>Segera</option>
-                                                <option>Kuartal Ini</option>
-                                                <option>Kuartal Berikutnya</option>
-                                                <option>Tahun Ini</option>
-                                                <option>Tidak Diketahui</option>
-                                            </select>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-month-input" class="col-2 col-form-label">Jangka Waktu Pembelian</label>
+                                    <div class="col-10">
+                                        <select name="waktu_pemesanan" class="form-control col-12">
+                                            <option selected="">Choose...</option>
+                                            <option>Segera</option>
+                                            <option>Kuartal Ini</option>
+                                            <option>Kuartal Berikutnya</option>
+                                            <option>Tahun Ini</option>
+                                            <option>Tidak Diketahui</option>
+                                        </select>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Perkiraan Pendapatan</label>
-                                        <div class="col-10">
-                                            <input class="form-control" id="rupiah1" name="rupiah1" type="text">
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">Perkiraan Pendapatan</label>
+                                    <div class="col-10">
+                                        <input class="form-control" id="rupiah1" name="rupiah1" type="text">
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-number-input" class="col-2 col-form-label">Jumlah Anggaran</label>
-                                        <div class="col-10">
-                                            <input class="form-control" id="rupiah2" name="rupiah2" type="text">
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-number-input" class="col-2 col-form-label">Jumlah Anggaran</label>
+                                    <div class="col-10">
+                                        <input class="form-control" id="rupiah2" name="rupiah2" type="text">
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-month-input" class="col-2 col-form-label">Proses Pembelian</label>
-                                        <div class="col-10">
-                                            <select name="proses_pemesanan" class="form-control col-12" id="inlineFormCustomSelect">
-                                                <option selected="">Choose...</option>
-                                                <option>Individu</option>
-                                                <option>komersial</option>
-                                                <option>Tidak Diketahui</option>
-                                            </select>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-month-input" class="col-2 col-form-label">Proses Pembelian</label>
+                                    <div class="col-10">
+                                        <select name="proses_pemesanan" class="form-control col-12" id="inlineFormCustomSelect">
+                                            <option selected="">Choose...</option>
+                                            <option>Individu</option>
+                                            <option>komersial</option>
+                                            <option>Tidak Diketahui</option>
+                                        </select>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Deskripsi</label>
-                                        <div class="col-10">
-                                            <textarea name="deskripsi" class="form-control"></textarea>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">Deskripsi</label>
+                                    <div class="col-10">
+                                        <textarea name="deskripsi" class="form-control"></textarea>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Situasi Saat Ini</label>
-                                        <div class="col-10">
-                                            <textarea name="situasi_sekarang" class="form-control"></textarea>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">Situasi Saat Ini</label>
+                                    <div class="col-10">
+                                        <textarea name="situasi_sekarang" class="form-control"></textarea>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Kebutuhan Pelanggan</label>
-                                        <div class="col-10">
-                                            <textarea name="kebutuhan_pelanggan" class="form-control"></textarea>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">Kebutuhan Pelanggan</label>
+                                    <div class="col-10">
+                                        <textarea name="kebutuhan_pelanggan" class="form-control"></textarea>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Solusi Yang Diusulkan</label>
-                                        <div class="col-10">
-                                            <textarea name="solusi" class="form-control"></textarea>
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">Solusi Yang Diusulkan</label>
+                                    <div class="col-10">
+                                        <textarea name="solusi" class="form-control"></textarea>
                                     </div>
-                                    <button type="button" id="tambahOpportunity" class="save-button waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="fa fa-save"></i></button>
-                                </form>
-                            </div>
+                                </div>
+                                <button type="button" id="tambahOpportunity" class="save-button waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="fa fa-save"></i></button>
+                            </form>
                         </div>
+                    </div>
                 </div>
                 <!-- End Content -->
             </div>
@@ -203,8 +203,8 @@
     </div>
     <?php $this->load->view('template/jquery'); ?>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $("#tambahOpportunity").click(function(e){
+        $(document).ready(function() {
+            $("#tambahOpportunity").click(function(e) {
                 e.preventDefault();
                 var data = $('.itemOpportunity').serialize();
                 $.ajax({
@@ -212,11 +212,10 @@
                     dataType: "json",
                     url: "<?= base_url('opportunity/simpan') ?>",
                     data: data,
-                    success: function(data){
-                        if($.isEmptyObject(data.error)){
+                    success: function(data) {
+                        if ($.isEmptyObject(data.error)) {
                             location.href = "<?= base_url('opportunity') ?>";
-                        }
-                        else{
+                        } else {
                             $("#topic_error").html(data.error.topic_error);
                             $("#nama_pelanggan_error").html(data.error.nama_pelanggan_error);
                             $("#tanggal_error").html(data.error.tanggal_error);

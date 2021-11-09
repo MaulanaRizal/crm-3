@@ -15,6 +15,7 @@ class Login extends CI_Controller
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		if ($this->form_validation->run() == FALSE) {
+			$this->session->set_flashdata('login_message', 'Terjadi kesalahan, lakukan login kembali');
 			redirect('login');
 		} else {
 			$post = $this->input->post(null, TRUE);
@@ -36,7 +37,7 @@ class Login extends CI_Controller
 				$this->session->set_userdata($params);
 				redirect('user/dashboard');
 			} else {
-				$this->session->set_flashdata('login_message', 'Maaf, Email atau Password anda masih belum tersedia');
+				$this->session->set_flashdata('login_message', 'Maaf, Email atau Password salah');
 				$this->load->view('auth/login');
 			}
 		}

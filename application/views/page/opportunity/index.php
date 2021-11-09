@@ -27,6 +27,10 @@
 
                 </div>
                 <!-- Start Content -->
+
+                <?php if(!empty($_SESSION['message'])): ?>
+                    <?= $_SESSION['message'] ?>
+                <?php endif ?>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -63,7 +67,7 @@
                                         </thead>
                                         <tbody>
                                             <?php $num = 1;
-                                            foreach ($opportunities as $data) { ?>
+                                            foreach ($opportunities as $data) : ?>
                                                 <tr style="text-align: left">
                                                     <td><?= $num ?></td>
                                                     <td><?= $data->TOPIC ?></td>
@@ -73,34 +77,35 @@
                                                     <td>Rp. <?= number_format($data->ANGGARAN , 2, ",", ".") ?></td>
                                                     <td><?= $data->PROSES_PEMESANAN ?></td>
                                                     <td><?= $data->KATEGORI ?></td>
-                                                    <td style="width: 400px;"><?= $data->DESKRIPSI ?></td>
+                                                    <td style="width: 400px;" class="deskripsi"><?= $data->DESKRIPSI ?></td>
                                                     <td>
-                                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash"></i></a>
+                                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#hapus_<?= $num ?>"><i class="fa fa-trash"></i></a>
                                                         <!-- Modal -->
-                                                        <div class="modal fade" id="hapus" tabindex="-1" role="dialog">
+                                                        <div class="modal fade" id="hapus_<?= $num ?>" tabindex="-1" role="dialog">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">Peringatan!</h5>
+                                                                        <h5 class="modal-title">Peringatan!</h5>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body">
-                                                                        Data yang terhapus tidak akan bisa dikembalikan lagi, apakah anda yakin?
+                                                                        <p>
+                                                                            Data yang terhapus tidak akan bisa dikembalikan lagi, apakah anda yakin?
+                                                                        </p>
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                                                        <button type="button" class="btn btn-danger">Hapus</button>
+                                                                        <a href="<?= base_url('opportunity/delete/'.$data->ID_OPPORTUNITY) ?>" class="btn btn-danger">Hapus</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </td>
                                                 </tr>
                                             <?php $num++;
-                                            } ?>
+                                            endforeach ?>
                                         </tbody>
                                     </table>
                                     <?php echo $this->pagination->create_links(); ?>
@@ -120,14 +125,10 @@
             <!-- End footer -->
         </div>
         <!-- /content -->
-
-
         <?php $this->load->view('template/jquery'); ?>
 
 
 
-
-        </script>
 </body>
 
 

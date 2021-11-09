@@ -62,6 +62,7 @@ class Opportunity extends CI_Controller{
 				'PEMILIK' 			=> $this->input->post('crm_owner')
 			);
 			$this->m_opportunity->insert('opportunities', $data);
+			$this->session->set_flashdata('message', "<div class='alert alert-success'>Opportunity berhasil ditambah</div>");
 		}
 	}
 
@@ -95,6 +96,13 @@ class Opportunity extends CI_Controller{
 			'PEMILIK' 			=> $this->input->post('crm_owner')
 		);
 		$this->m_opportunity->update('opportunities',$data,array('ID_OPPORTUNITY' => $id));
+		$this->session->set_flashdata('message', "<div class='alert alert-success'>Opportunity berhasil diubah.</div>");
+		redirect('opportunity');
+	}
+	public function delete($id)
+	{
+		$this->m_opportunity->delete('opportunities',$id);
+		$this->session->set_flashdata('message', "<div class='alert alert-success'>Opportunity berhasil dihapus.</div>");
 		redirect('opportunity');
 	}
 }

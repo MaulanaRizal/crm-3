@@ -26,6 +26,12 @@
                 <!-- Start Content -->
 
                 <div class="row d-flex justify-content-center">
+
+                <?php if (isset($_SESSION['message'])) {
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                }?>
+
                     <?php if (!empty($_SESSION['message'])) { ?>
                         <div class="alert alert-danger">
                             <strong>Gagal!</strong><?= $_SESSION['message'] ?>
@@ -54,7 +60,7 @@
                                             <option value="" disabled selected>Select</option>
                                             <?php foreach ($pelanggan as $p) : ?>
                                                 <?php if ($alamat[0]->ID_OPPORTUNITY == $p->ID_OPPORTUNITY) : ?>
-                                                    <option selected value="<?= $p->ID_OPPORTUNITY ?>"><?= $p->TOPIC ?> - <?= $p->PELANGGAN ?></option>
+                                                    <option selected value="<?= $p->ID_OPPORTUNITY ?>"><?= $p->TOPIC ?> - <?= $p->NAMA_PELANGGAN ?></option>
                                                 <?php else : ?>
                                                     <option value="<?= $p->ID_OPPORTUNITY ?>"><?= $p->TOPIC ?> - <?= $p->PELANGGAN ?></option>
                                                 <?php endif ?>

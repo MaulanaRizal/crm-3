@@ -49,11 +49,12 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="pelanggan" class="col-sm-3 text-right control-label col-form-label">Pelanggan <span class='require'>*</span></label>
+
                                     <div class="col-sm-7">
                                         <select class="select2" style="width: 100%" id=pelanggan name=pelanggan required>
                                             <option value="" disabled selected>Select</option>
                                             <?php foreach ($pelanggan as $p) : ?>
-                                                <option value="<?= $p->ID_OPPORTUNITY ?>"><?= $p->TOPIC ?> - <?= $p->PELANGGAN ?></option>
+                                                <option value="<?= $p->ID_OPPORTUNITY ?>"><?= $p->TOPIC ?> - <?= $p->NAMA_PELANGGAN ?></option>
                                             <?php endforeach ?>
                                         </select>
                                         <small style="color: red;" id=pelanggan-alert></small>
@@ -145,7 +146,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row offset-md-3">
-                                    
+
                                     <input id="status_alamat" name="status_alamat" type="checkbox">
                                     <label for="status_alamat" class="col-md-6 control-label">Status Aktif</label>
                                 </div>
@@ -176,7 +177,7 @@
             }
 
             $(function() {
-                $.ajaxSetup({ 
+                $.ajaxSetup({
                     type: "POST",
                     url: "<?php echo base_url('alamat/ambil_data') ?>",
                     cache: false,

@@ -111,7 +111,7 @@ class Alamat extends CI_Controller
         $data['alamat'] = $this->alamat->getData('addreess', array('ID_ADDRESS' => $id))->result();
         $this->load->view('page/alamat/edit', $data);
     }
-    public function update($id)
+    public function update($id_adress)
     {
         $this->form_validation->set_rules('nama', '', 'required');
         $this->form_validation->set_rules('pelanggan', '', 'required');
@@ -146,8 +146,8 @@ class Alamat extends CI_Controller
                 'CRM_STATUS'    => $status,
             );
             var_dump($data);
-            $this->alamat->update('addreess', $data, array('ID_ADDRESS' => $id));
-            $this->session->set_flashdata('message', "<div class='alert alert-success'><strong>Berhasil!</strong>Alamat berhasil diganti</div>");
+            $this->alamat->update('addreess', $data, array('ID_ADDRESS' => $id_adress));
+            $this->session->set_flashdata('message', "<div class='alert alert-success'>Data Alamat berhasil diganti</div>");
             redirect('alamat');
         } else {
             $this->session->set_flashdata('message', "<div class='alert alert-danger'>Terjadi kesalahanmohon coba lagi</div>");
