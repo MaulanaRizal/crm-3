@@ -83,7 +83,7 @@ class Menu extends CI_Controller
             'LINK'        => $_POST['link']
         );
         $this->model->update('menus', $data, $id);
-        $this->session->set_flashdata('message', 'Data berhasil diubah');
+        $this->session->set_flashdata('success', 'Data berhasil diubah');
         redirect('menu');
         // echo 'Tidak Tersedia';		
     }

@@ -8,7 +8,7 @@ Class M_users extends CI_Model {
     }
     public function getTable()
     {
-        $data = $this->db->query('SELECT * FROM users INNER JOIN sbu on users.ID_SBU=sbu.ID_SBU INNER JOIN roles on users.ID_SBU=roles.ID_ROLE');
+        $data = $this->db->query('SELECT * FROM users INNER JOIN sbu on users.ID_SBU=sbu.ID_SBU INNER JOIN roles on users.ID_ROLE=roles.ID_ROLE');
         return $data;
     }
     public function insert($table,$data)

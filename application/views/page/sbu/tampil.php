@@ -26,6 +26,11 @@
                     </div>
 
                 </div>
+
+                <?php if(isset($_SESSION['message'])){
+                    echo $_SESSION['message'];
+                }?>
+
                 <!-- Start Content -->
 
 
@@ -107,25 +112,25 @@
                         <h4 class="modal-title" id="exampleModalLabel1">Tambah Data SBU</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
-                    <form novalidate class="item" method="post">
+                    <form class="item" method="post" action="<?= base_url('sbu/tambah') ?>">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">No SBU:</label>
-                                <input type="text" class="form-control" id="no_sbu" name="no_sbu" value="<?php echo 'SBU-', $num ?>" disabled>
+                                <input type="text" class="form-control" id="no_sbu" name="no_sbu" value="<?php echo 'SBU-', $num ?>" readonly>
                             </div>
                             <div class="form-group <?= form_error('sbu_region') ? 'has-error' : null ?>">
-                                <label for="recipient-name" class="control-label">Wilayah SBU:</label>
-                                <input type="text" class="form-control" id="recipient-name1" name="sbu_region" required>
+                                <label for="recipient-name" class="control-label">Wilayah SBU <span class="require">*</span>:</label>
+                                <input type="text" class="form-control" name="sbu_region" required >
                                 <span id="sbu_error" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="control-label">Deskripsi:</label>
-                                <textarea class="form-control" rows=6 id="message-text1" name="deskripsi"></textarea>
+                                <textarea class="form-control" rows=6 name="deskripsi"></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" name="tambah" id="tambah" class="btn btn-primary">Simpan</button>
+                            <button type="submit" id="tambah" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -196,29 +201,9 @@
 
     <?php $this->load->view('template/jquery'); ?>
     <script type="text/javascript">
-        $(document).ready(function() {
-            $("#tambah").click(function(e) {
-                e.preventDefault();
-                var data = $('.item').serialize();
-                $.ajax({
-                    type: 'POST',
-                    dataType: "json",
-                    url: "<?= base_url('Sbu/tambah'); ?>",
-                    data: data,
-                    success: function(data) {
-                        if ($.isEmptyObject(data.error)) {
-                            location.href = "<?= base_url('sbu'); ?>";
-                        } else {
-                            $("#sbu_error").html(data.error.sbu_error);
-                        }
-                    }
-                });
-            });
-        });
-
-        $('#updateSBU').click(function(){
+        $('#updateSBU').click(function() {
             console.log($('#updateWilayah'));
-             console.log('ada');
+            console.log('ada');
         });
     </script>
 </body>

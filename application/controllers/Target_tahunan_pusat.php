@@ -31,7 +31,6 @@ class Target_tahunan_pusat extends CI_Controller
 
     public function insert()
     {
-        var_dump($_POST);
         $this->form_validation->set_rules('nominal', 'Nominal', 'required', array(
             'required' => 'Input yang dimasukan tidak dapat diubah menjadi angka'
         ));
@@ -43,13 +42,13 @@ class Target_tahunan_pusat extends CI_Controller
         // echo is_int($int_nominal);
         if ($int_nominal == 0 or $_POST['nominal'] == 'Rp. 0,00') {
             $this->session->set_flashdata('message', "<div class='alert alert-danger'><strong>Gagal!</strong> Input yang dimasukan tidak valid.</div>");
-            $this->index();
+            redirect('target_tahunan_pusat/periode/' . $_POST['periode']);
         } else {
             $this->session->set_flashdata('message', "<div class='alert alert-success'><strong>Berhasil!</strong>Target tahunan untuk SBU " . $_POST['sbu'] . ", berhasil diubah</div>");
             $this->model->update('annual_target', array('ANNUAL_TARGET' => $int_nominal), array('ID_ANNUAL' => $_POST['id_annual']));
             if ($_POST['tahun_periode'] == null) {
                 // echo 'masuk index';
-                redirect('target_tahunan_pusat');
+                redirect('target_tahunan_pusat/periode/' . $_POST['periode']);
             } else {
                 // echo 'tidak masuk index';
                 redirect('target_tahunan_pusat/periode/' . $_POST['periode']);
